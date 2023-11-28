@@ -27,8 +27,7 @@
 
 
 ## 🌟 What's Inside?
-- In-depth exploration of Nmap for network reconnaissance and host discovery.
-- Practical guides on various scanning techniques: ARP, UDP, ECHO, Ping Sweep, ICMP Timestamp, ICMP Mask, and IP scans.
+- In-depth exploration of Nmap for port/service discovery.
 - Detailed walkthroughs and examples for each scanning method to enhance your network analysis skills.
 
 <p align=”center”>
@@ -41,8 +40,8 @@
 ## 🚀 Quick Start
 Clone the repository and navigate to the project of your interest:
 ```bash
-git clone https://github.com/Parad0xF/Nmap-Active-Reconnaissance.git
-cd Nmap-Active-Reconnaissance/
+git clone https://github.com/Parad0xF/Nmap-Active-Port-Reconnaissance.git
+cd Nmap-Active-Port-Reconnaissance/
 ```
 ## 🛠️ Technologies & Tools
 - **Kali** for penetration testing projects.
