@@ -115,14 +115,14 @@ To run the PowerShell script, follow these steps:
 - Open PowerShell on your Windows system.
 
 ### Copy the PowerShell Script:
-- Copy the following PowerShell script into a file, for example, `Run-Nmap.ps1`.
+- Copy the following PowerShell script into a file, for example, `optimezed-nmap-scan-multi-proto.ps1`.
 
 ### Run the Script:
 - Navigate to the directory containing the script in PowerShell.
 - Execute the script:
 
     ```powershell
-    .\Run-Nmap.ps1
+    .\optimezed-nmap-scan-multi-proto.ps1
 ### Notes
 - Always download Nmap from its official website to ensure security and get the latest version.
 - The download URL may vary with different Nmap versions; refer to the official website for the most recent link.
