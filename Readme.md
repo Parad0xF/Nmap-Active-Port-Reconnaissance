@@ -28,7 +28,7 @@
 
 ## 🌟 What's Inside?
 - In-depth exploration of Nmap for port/service discovery.
-- Detailed walkthroughs and examples for each scanning method to enhance your network analysis skills.
+- Detailed examples for each scanning method to enhance your network analysis skills.
 
 <p align=”center”>
     <a>
@@ -53,6 +53,29 @@ cd Nmap-Active-Port-Reconnaissance/
 <p align="center">
     <b>Let's explore the limitless possibilities of technology together!</b>
 </p>
+
+# Nmap Installation Guide for Linux
+
+This repository provides a guide to install `nmap`, a network scanning tool, on Windows using PowerShell.
+
+## Prerequisites
+
+- Debian/Ubuntu operating system
+- Bash/Terminal with administrative rights
+- Internet connection
+
+## Installation Steps for Linux
+
+### Step 1: Install Nmap
+
+- Nmap can usually be installed directly from your distribution's package manager. For most Linux distributions, you can use one of the following commands:
+
+#### On Debian/Ubuntu:
+- Execute the command
+    ```bash
+    sudo apt-get update && apt-get install nmap && nmap --version
+    ```
+<br></br>
 
 # Nmap Installation Guide for Windows
 
@@ -107,21 +130,37 @@ This repository provides a guide to install `nmap`, a network scanning tool, on 
   ```powershell
   nmap -v
 This should display the Nmap version, indicating successful installation.
+
+<br></br>
+
+
+
+
+## Running the Linux/Bash Script
+To run the Bash script, follow these steps:
+
+### Run the script:
+- Navigate to the directory containing the script in PowerShell.
+- Execute the script:
+
+    ```sh
+    cd Nmap-Active-Port-Reconnaissance/Linux
+    sh optimezed-nmap-scan-multi-proto.sh
+    ```
+<br></br>
+
+
 ## Running the PowerShell Script
-
 To run the PowerShell script, follow these steps:
-
 ### Open PowerShell:
 - Open PowerShell on your Windows system.
-
-### Copy the PowerShell Script:
-- Copy the following PowerShell script into a file, for example, `optimezed-nmap-scan-multi-proto.ps1`.
 
 ### Run the Script:
 - Navigate to the directory containing the script in PowerShell.
 - Execute the script:
 
     ```powershell
+    cd Nmap-Active-Port-Reconnaissance\Windows
     .\optimezed-nmap-scan-multi-proto.ps1
 ### Notes
 - Always download Nmap from its official website to ensure security and get the latest version.
