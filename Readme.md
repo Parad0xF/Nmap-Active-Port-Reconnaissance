@@ -33,6 +33,13 @@
 - Practical guides on various scanning techniques: ARP, UDP, ECHO, Ping Sweep, ICMP Timestamp, ICMP Mask, and IP scans.
 - Detailed walkthroughs and examples for each scanning method to enhance your network analysis skills.
 
+<p align=”center”>
+    <a>
+        <img width=”200" height=”200"  src="https://github.com/Parad0xF/Nmap-Active-Port-Reconnaissance/assets/34218173/daf668bb-d86d-4aea-86fe-ff228ff0c024" alt=”my banner”>
+    <a/>
+</p>
+
+
 ## 🚀 Quick Start
 Clone the repository and navigate to the project of your interest:
 ```bash
