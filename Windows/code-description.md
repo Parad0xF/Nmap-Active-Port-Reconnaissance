@@ -147,8 +147,7 @@ foreach ($command in $commandConfigurations[$selectedOS]) {
 Iterates over the command configurations for the selected operating system.
 
 ## Invoke Command and Handle Result:
-```
-powershell
+```powershell
     $result = Invoke-NmapScan -CommandNumber $command.Number -ScanType $command.ScanType -OutputFile $command.OutputFile -TargetIP $targetIP
     if (-not $result) {
         Write-Host "Failed to execute some commands. Exiting..."
