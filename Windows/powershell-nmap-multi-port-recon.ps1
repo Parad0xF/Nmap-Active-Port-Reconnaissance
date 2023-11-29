@@ -1,94 +1,68 @@
+enum OperatingSystem {
+    Windows = 1
+    Unix = 2
+}
 
-#Global vars for operation systems
-$winOS = 1
-$unixOS = 2
-$funcExitStatus
-
-function Run-Nmap {
+function Invoke-NmapScan {
     param (
         [int]$CommandNumber,
         [string]$ScanType,
-        [string]$OutputFile
+        [string]$OutputFile,
+        [string]$TargetIP
     )
 
-    $command = "nmap $ScanType $ip -oN $OutputFile"
+    $command = "nmap $ScanType $TargetIP -oN $OutputFile"
     Write-Host "Running command $CommandNumber $command"
 
     try {
-        Invoke-Expression $command
+        # Safer alternative to Invoke-Expression
+        Start-Process -FilePath "nmap" -ArgumentList "$ScanType", "$TargetIP", "-oN", "$OutputFile" -NoNewWindow -Wait
         Write-Host "Command $CommandNumber successful."
     } catch {
-        Write-Host "Command $CommandNumber failed. Exiting."
-        exit 1
+        Write-Host "Command $CommandNumber failed. Error: $_"
+        return $false
     }
+    return $true
 }
 
-# Prompt the user for OS input
-$userInputOS = Read-host -Prompt "Please enter the what operation system you would like to target?`n For Windows OS type - 1 ... `n For Linux OS type - 2 ... `n"
-
-# Print the OS input
-Write-Host "You entred: $userInputOS"
-
-# Prompt the user for Target IP
-$userInputIP = Read-host -Prompt "Please enter the what operation system you would like to target? ..."
-
-# Print the target IP
-Write-Host "You entred: $userInputIP"
-
-# IP Address Range
-$ip = $userInputIP
-
-
-
-# Command configurations
-$commandsWindows = @(
-    @{ Number=1; ScanType="-sn -PA"; OutputFile=".\Windows-Results\arp-scan-results.txt" },
-    @{ Number=2; ScanType="-sn -PA"; OutputFile=".\Windows-Results\arp-scan-results.txt" }
-
-)
-$commandsLinux = @(
-    @{ Number=1; ScanType="-sn -PA"; OutputFile="Linux\arp-scan-results.txt" },
-    @{ Number=2; ScanType="-sn -PU"; OutputFile="Linux\UDP-scan-results.txt" }
-
-)
-# Run the commands
-
-$folderPathWin = ".\Windows-Results"
-
-if (Test-Path -Path $folderPathWin) {
-    Write-Host "Folder exist"
-    $userChoise = Read-Host -Prompt "Overwrite it Yes or No ... ?".ToLower()
-
-    if ($userChoise -eq "yes"){
-        if($userInputOS -eq $winOS ) {
-            foreach ($command in $commandsWindows) {
-                Run-Nmap -CommandNumber $command.Number -ScanType $command.ScanType -OutputFile $command.OutputFile
-                Write-Host "Successfully scanned the host"
-            } 
-        }
-    } else { 
-
-        return "Stopping the process ..... "
-    }
-
-} else {
-
-    Write-Host "Createing a folder .\Windows-Results ...."
-    mkdir .\Windows-Results
-    foreach ($command in $commandsWindows) {
-        Run-Nmap -CommandNumber $command.Number -ScanType $command.ScanType -OutputFile $command.OutputFile
-        Write-Host "Successfully scanned the host"
-    }
-
+function IsValidIPAddress {
+    param ([string]$ip)
+    return ($ip -match '^\d{1,3}(\.\d{1,3}){3}$')
 }
 
+# Main script execution starts here
+$selectedOS = [OperatingSystem](Read-Host "Please enter the operating system to target (1 for Windows, 2 for Unix)")
 
-if($userInputOS -eq $unixOS )
-{
-    foreach ($command in $commandsWindows) {
-        Run-Nmap -CommandNumber $command.Number -ScanType $command.ScanType -OutputFile $command.OutputFile
-    }
+$targetIP = Read-Host "Please enter the target IP address"
+
+if (-not (IsValidIPAddress $targetIP)) {
+    Write-Host "Invalid IP address format. Exiting..."
+    return
 }
 
+$commandConfigurations = @{
+    [OperatingSystem]::Windows = @(
+        @{ Number=1; ScanType="-sn -PA"; OutputFile=".\Windows-Results\arp-scan-results.txt" },
+        @{ Number=2; ScanType="-sn -PA"; OutputFile=".\Windows-Results\arp-scan-results.txt" }
+    )
+    [OperatingSystem]::Unix = @(
+        @{ Number=1; ScanType="-sn -PA"; OutputFile=".\Linux\arp-scan-results.txt" },
+        @{ Number=2; ScanType="-sn -PU"; OutputFile=".\Linux\UDP-scan-results.txt" }
+    )
+}
 
+$folderPath = if ($selectedOS -eq [OperatingSystem]::Windows) { ".\Windows-Results" } else { ".\Linux" }
 
+if (-not (Test-Path -Path $folderPath)) {
+    Write-Host "Creating folder $folderPath..."
+    New-Item -Path $folderPath -ItemType Directory | Out-Null
+}
+
+foreach ($command in $commandConfigurations[$selectedOS]) {
+    $result = Invoke-NmapScan -CommandNumber $command.Number -ScanType $command.ScanType -OutputFile $command.OutputFile -TargetIP $targetIP
+    if (-not $result) {
+        Write-Host "Failed to execute some commands. Exiting..."
+        break
+    }
+    Write-Host "Successfully scanned the host"
+}
