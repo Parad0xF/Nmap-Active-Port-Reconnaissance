@@ -1,22 +1,14 @@
-function Show-AsciiArt {
-    $green = "`e[32m"
-    $yellow = "`e[33m"
-    $reset = "`e[0m"
+$art = @"
+██╗  ██╗ █████╗  ██████╗██╗  ██╗  ████████╗██╗  ██╗███████╗    ███████╗██╗   ██╗███████╗
+██║  ██║██╔══██╗██╔════╝██║ ██╔╝  ╚══██╔══╝██║  ██║██╔════╝    ██╔════╝╚██╗ ██╔╝██╔════╝
+███████║███████║██║     █████╔╝█████╗██║   ███████║█████╗█████╗███████╗ ╚████╔╝ ███████╗
+██╔══██║██╔══██║██║     ██╔═██╗╚════╝██║   ██╔══██║██╔══╝╚════╝╚════██║  ╚██╔╝  ╚════██║
+██║  ██║██║  ██║╚██████╗██║  ██╗     ██║   ██║  ██║███████╗    ███████║   ██║   ███████║
+╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝     ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚══════╝   ╚═╝   ╚══════╝
+"@
 
-    $asciiArt = $green + "+--------------------+" + "`n" +
-                "|    " + $yellow + "POWERSHELL" + $green + "       |" + "`n" +
-                "|    " + $yellow + "NMAP PORT SCAN" + $green + "   |" + "`n" +
-                "|    " + $yellow + "Author - PARADOX" + $green + " |" + "`n" +
-                "+--------------------+" + $reset
-    Write-Host $asciiArt
-}
-
-# Main script execution
-Show-AsciiArt
-
-# Rest of your script goes here
-
-
+# Display the art in PowerShell
+Write-Host $art
 
 enum OperatingSystem {
     Windows = 1
