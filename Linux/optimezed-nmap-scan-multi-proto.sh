@@ -16,7 +16,7 @@ run_nmap() {
 }
 
 # IP Address Range
-ip="192.168.1.1/24"
+$ip = "192.168.1.1/24"
 
 # Run the commands
 run_nmap 1 "-sn -PA" "arp-scan-results.txt"
@@ -29,3 +29,8 @@ run_nmap 7 "-sn -PA" "TCP-ACK-scan-results.txt"
 run_nmap 8 "-sn -PO" "TCP-ACK-scan-results.txt"
 
 echo "Successfully scanned the environment"
+
+
+
+
+

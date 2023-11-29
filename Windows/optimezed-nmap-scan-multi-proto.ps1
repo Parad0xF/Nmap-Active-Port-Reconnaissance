@@ -17,8 +17,22 @@ function Run-Nmap {
     }
 }
 
+# Prompt the user for OS input
+$userInputOS = Read-host -Prompt "Please enter the what operation system you would like to target? ..."
+
+# Print the OS input
+Write-Host "You entred: $userInputOS"
+
+# Prompt the user for Target IP
+$userInputIP = Read-host -Prompt "Please enter the what operation system you would like to target? ..."
+
+# Print the target IP
+Write-Host "You entred: $userInputIP"
+
 # IP Address Range
-$ip = "192.168.1.1/24"
+$ip = $userInputIP
+
+
 
 # Command configurations
 $commands = @(
