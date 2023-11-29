@@ -1,3 +1,9 @@
+
+#Global vars for operation systems
+$winOS = 1
+$unixOS = 2
+$funcExitStatus
+
 function Run-Nmap {
     param (
         [int]$CommandNumber,
@@ -18,7 +24,7 @@ function Run-Nmap {
 }
 
 # Prompt the user for OS input
-$userInputOS = Read-host -Prompt "Please enter the what operation system you would like to target? ..."
+$userInputOS = Read-host -Prompt "Please enter the what operation system you would like to target?`n For Windows OS type - 1 ... `n For Linux OS type - 2 ... `n"
 
 # Print the OS input
 Write-Host "You entred: $userInputOS"
@@ -35,20 +41,55 @@ $ip = $userInputIP
 
 
 # Command configurations
-$commands = @(
-    @{ Number=1; ScanType="-sn -PA"; OutputFile="arp-scan-results.txt" },
-    @{ Number=2; ScanType="-sn -PU"; OutputFile="UDP-scan-results.txt" },
-    @{ Number=3; ScanType="-sn -PE"; OutputFile="ECHO-scan-results.txt" },
-    @{ Number=4; ScanType="-sn -PP"; OutputFile="ICMP-Timestamp-scan-results.txt" },
-    @{ Number=5; ScanType="-sn -PM"; OutputFile="ICMP-Mask-scan-results.txt" },
-    @{ Number=6; ScanType="-sn -PS"; OutputFile="TCP-SYN-scan-results.txt" },
-    @{ Number=7; ScanType="-sn -PA"; OutputFile="TCP-ACK-scan-results.txt" },
-    @{ Number=8; ScanType="-sn -PO"; OutputFile="TCP-ACK-scan-results.txt" }
-)
+$commandsWindows = @(
+    @{ Number=1; ScanType="-sn -PA"; OutputFile=".\Windows-Results\arp-scan-results.txt" },
+    @{ Number=2; ScanType="-sn -PA"; OutputFile=".\Windows-Results\arp-scan-results.txt" }
 
+)
+$commandsLinux = @(
+    @{ Number=1; ScanType="-sn -PA"; OutputFile="Linux\arp-scan-results.txt" },
+    @{ Number=2; ScanType="-sn -PU"; OutputFile="Linux\UDP-scan-results.txt" }
+
+)
 # Run the commands
-foreach ($command in $commands) {
-    Run-Nmap -CommandNumber $command.Number -ScanType $command.ScanType -OutputFile $command.OutputFile
+
+$folderPathWin = ".\Windows-Results"
+
+if (Test-Path -Path $folderPathWin) {
+    Write-Host "Folder exist"
+    $userChoise = Read-Host -Prompt "Overwrite it Yes or No ... ?".ToLower()
+
+    if ($userChoise -eq "yes"){
+        if($userInputOS -eq $winOS ) {
+            foreach ($command in $commandsWindows) {
+                Run-Nmap -CommandNumber $command.Number -ScanType $command.ScanType -OutputFile $command.OutputFile
+                Write-Host "Successfully scanned the host"
+            } 
+        }
+    } else { 
+
+        return "Stopping process return " + $false
+        exit $false
+    }
+
+} else {
+
+    Write-Host "Createing a folder .\Windows-Results ...."
+    mkdir .\Windows-Results
+    foreach ($command in $commandsWindows) {
+        Run-Nmap -CommandNumber $command.Number -ScanType $command.ScanType -OutputFile $command.OutputFile
+        Write-Host "Successfully scanned the host"
+    }
+
 }
 
-Write-Host "Successfully scanned the environment"
+
+if($userInputOS -eq $unixOS )
+{
+    foreach ($command in $commandsWindows) {
+        Run-Nmap -CommandNumber $command.Number -ScanType $command.ScanType -OutputFile $command.OutputFile
+    }
+}
+
+
+

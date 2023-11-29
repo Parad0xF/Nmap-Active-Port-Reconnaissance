@@ -1,0 +1,5 @@
+# Nmap 7.91 scan initiated Tue Nov 28 22:01:03 2023 as: "C:\\Program Files (x86)\\Nmap\\nmap.exe" -sn -PA -oN .\\Windows-Results\\arp-scan-results.txt 192.168.1.1
+Nmap scan report for 192.168.1.1
+Host is up (0.29s latency).
+MAC Address: 50:E0:85:F3:1E:43 (Intel Corporate)
+# Nmap done at Tue Nov 28 22:01:04 2023 -- 1 IP address (1 host up) scanned in 0.70 seconds
