@@ -41,110 +41,117 @@ Start-Process -FilePath "nmap" -ArgumentList "$ScanType", "$TargetIP", "-oN", "$
 ```
 Executes the nmap command safely using Start-Process with the specified arguments.
 
-Error Handling:
+## Error Handling:
 
-powershell
-Copy code
+```powershell
 try {
 Begins a try block for error handling.
+```
+## Success Message:
 
-Success Message:
+```powershell
 
-powershell
-Copy code
-    Write-Host "Command $CommandNumber successful."
+Write-Host "Command $CommandNumber successful."
+```
+
 Prints a success message if the command executes without errors.
 
-Catch Block:
+## Catch Block:
 
-powershell
-Copy code
+```powershell
+
 } catch {
     Write-Host "Command $CommandNumber failed. Error: $_"
     return $false
 }
+```
+
 Catches any errors that occur during command execution, prints an error message, and returns $false.
 
-Function Return on Success:
+### Function Return on Success:
 
-powershell
-Copy code
+```powershell
 return $true
+```
+
 Returns $true if the command executes successfully.
 
-Function Definition: IsValidIPAddress:
+## Function Definition: IsValidIPAddress:
 
-powershell
-Copy code
+```powershell
 function IsValidIPAddress {
+```
 Starts the definition of a function named IsValidIPAddress.
 
-IP Address Validation:
+## IP Address Validation:
 
-powershell
-Copy code
-    return ($ip -match '^\d{1,3}(\.\d{1,3}){3}$')
+``` powershell
+return ($ip -match '^\d{1,3}(\.\d{1,3}){3}$')
+```
 Uses a regular expression to check if the provided IP address is valid and returns the result.
 
-Read User Input for OS:
+### Read User Input for OS: 
 
-powershell
-Copy code
+```powershell
 $selectedOS = [OperatingSystem](Read-Host "Please enter the operating system to target (1 for Windows, 2 for Unix)")
+```
 Prompts the user to enter the operating system to target and casts the input to the OperatingSystem enum.
 
-Read User Input for IP Address:
+## Read User Input for IP Address:
 
-powershell
-Copy code
+``` powershell
 $targetIP = Read-Host "Please enter the target IP address"
+```
 Prompts the user to enter the target IP address.
 
-Validate IP Address:
+## Validate IP Address:
 
-powershell
-Copy code
+``` powershell
 if (-not (IsValidIPAddress $targetIP)) {
+```
+
 Checks if the entered IP address is valid. The -not operator is used for negation.
 
-Conditional Execution and Return:
+## Conditional Execution and Return:
 
-powershell
-Copy code
-    Write-Host "Invalid IP address format. Exiting..."
-    return
+```powershell
+Write-Host "Invalid IP address format. Exiting..."
+return
 }
+```
 If the IP address is invalid, prints a message and exits the script.
 
-Command Configurations:
+## Command Configurations:
 
-powershell
-Copy code
+```powershell
 $commandConfigurations = @{
+```
+
 Defines a hashtable (@{}) for storing command configurations for Windows and Unix systems.
 
-Creating Directory if Not Exists:
+## Creating Directory if Not Exists:
 
-powershell
-Copy code
+``` powershell
 if (-not (Test-Path -Path $folderPath)) {
     Write-Host "Creating folder $folderPath..."
     New-Item -Path $folderPath -ItemType Directory | Out-Null
 }
+```
 Checks if the specified folder path exists, and if not, creates it.
 
-Looping Through Commands:
+## Looping Through Commands:
 
-powershell
-Copy code
+```powershell
 foreach ($command in $commandConfigurations[$selectedOS]) {
+```
 Iterates over the command configurations for the selected operating system.
 
-Invoke Command and Handle Result:
-
+## Invoke Command and Handle Result:
+```
 powershell
-Copy code
     $result = Invoke-NmapScan -CommandNumber $command.Number -ScanType $command.ScanType -OutputFile $command.OutputFile -TargetIP $targetIP
     if (-not $result) {
         Write-Host "Failed to execute some commands. Exiting..."
         break
+
+```
