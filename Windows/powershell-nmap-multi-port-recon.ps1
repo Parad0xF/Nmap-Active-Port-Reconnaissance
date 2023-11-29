@@ -68,8 +68,7 @@ if (Test-Path -Path $folderPathWin) {
         }
     } else { 
 
-        return "Stopping process return " + $false
-        exit $false
+        return "Stopping the process ..... "
     }
 
 } else {
