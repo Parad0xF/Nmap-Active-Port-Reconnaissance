@@ -32,7 +32,7 @@
 
 <p align=”center”>
     <a>
-        <img width=”200" height=”200"  src="https://github.com/Parad0xF/Nmap-Active-Port-Reconnaissance/assets/34218173/daf668bb-d86d-4aea-86fe-ff228ff0c024" alt=”my banner”>
+        <img width=”200" height=”200"  src="https://github.com/Parad0xF/Nmap-Active-Port-Reconnaissance/assets/34218173/86f689aa-ba07-4fcd-aabd-54b34a029dfb" alt=”Scanning Types”>
     <a/>
 </p>
 
