@@ -1,27 +1,7 @@
-██╗  ██╗ █████╗  ██████╗██╗  ██╗  ████████╗██╗  ██╗███████╗    ███████╗██╗   ██╗███████╗
-██║  ██║██╔══██╗██╔════╝██║ ██╔╝  ╚══██╔══╝██║  ██║██╔════╝    ██╔════╝╚██╗ ██╔╝██╔════╝
-███████║███████║██║     █████╔╝█████╗██║   ███████║█████╗█████╗███████╗ ╚████╔╝ ███████╗
-██╔══██║██╔══██║██║     ██╔═██╗╚════╝██║   ██╔══██║██╔══╝╚════╝╚════██║  ╚██╔╝  ╚════██║
-██║  ██║██║  ██║╚██████╗██║  ██╗     ██║   ██║  ██║███████╗    ███████║   ██║   ███████║
-
-<h2 align="center">👋 Hi, I'm Parad0x</h1>
-<h3 align="center">🔥 A Passionate Cyber-Security Professional and Penetration tools Developer 🔥</h3>
-
-<p align="center">
-    <a href="https://linkedin.com/in/radu-enachi" target="_blank">
-        <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="radu-enachi" height="30" width="40"/>
-    </a>
-    <a href="https://www.youtube.com/channel/UC9jbwalXYXFl2kdZsUNY0Sw" target="_blank">
-        <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="Parad0x's YouTube" height="30" width="40"/>
-    </a>
-    <a href="http://raensec.com" target="_blank">
-        <img src="https://github.com/Parad0xF/Nmap-Active-Reconnaissance/assets/34218173/3b0f1874-20b3-48a9-be19-19ac5967ec59" alt="Parad0x's Website" height="30" width="40"/>
-    </a>
-</p>
-
-<h1 align="center">🌐 Nmap Host Discovery Repository 🌐</h1>
-<p align="center">
-    <i>Dive into the world of network security with this repository, featuring comprehensive guides and practical applications of Nmap for reconnaissance and host discovery. Explore various scanning techniques including ARP, UDP, ECHO, Ping Sweep, ICMP Timestamp, ICMP Mask, and IP scans, perfecting your skills in cyber-security and network analysis.</i>
+<p align=”center”>
+    <a>
+        <img width=”200" height=”200"  src="https://github.com/Parad0xF/Nmap-Active-Port-Reconnaissance/assets/34218173/299d4867-b0c7-4962-b38b-0e65116a7416" alt=”Scanning Types”>
+    <a/>
 </p>
 
 
