@@ -145,7 +145,7 @@ To run the Bash script, follow these steps:
 
     ```sh
     cd Nmap-Active-Port-Reconnaissance/Linux
-    sh optimezed-nmap-scan-multi-proto.sh
+    sh bash-nmap-multi-port-recon.sh
     ```
 <br></br>
 
@@ -161,7 +161,7 @@ To run the PowerShell script, follow these steps:
 
     ```powershell
     cd Nmap-Active-Port-Reconnaissance\Windows
-    .\optimezed-nmap-scan-multi-proto.ps1
+    .\powershell-nmap-multi-port-recon.ps1
 ### Notes
 - Always download Nmap from its official website to ensure security and get the latest version.
 - The download URL may vary with different Nmap versions; refer to the official website for the most recent link.
