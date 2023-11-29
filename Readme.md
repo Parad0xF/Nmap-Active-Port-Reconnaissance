@@ -27,8 +27,6 @@
 
 
 ## 🌟 What's Inside?
-- In-depth exploration of Nmap for port/service discovery.
-- Detailed examples for each scanning method to enhance your network analysis skills.
 
 <p align=”center”>
     <a>
