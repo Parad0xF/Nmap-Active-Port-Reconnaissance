@@ -4,9 +4,13 @@
     <a/>
 </p>
 
+---
 
+<p align="center"><b>Let's explore the limitless possibilities of technology together!</b></p>
 
-## 🌟 What's Inside?
+---
+
+### 🌟 What's Inside?
 
 <p align=”center”>
     <a>
@@ -29,9 +33,7 @@ cd Nmap-Active-Port-Reconnaissance/
 
 ---
 
-<p align="center">
-    <b>Let's explore the limitless possibilities of technology together!</b>
-</p>
+
 
 # Nmap Installation Guide for Linux
 
