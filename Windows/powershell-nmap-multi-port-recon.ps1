@@ -56,7 +56,7 @@ $commandConfigurations = @{
     [OperatingSystem]::Windows = @(
         @{ Number=1; ScanType="-sT -Pn"; OutputFile=".\Windows-Results\FULL-TCP-scan-results.txt" },
         @{ Number=2; ScanType="-sS -PA"; OutputFile=".\Windows-Results\Stealh-scan-results.txt" },
-        @{ Number=4; ScanType="-sA -sW -PA"; OutputFile=".\Windows-Results\Win-ACK-Probe-scan-results.txt" },
+        @{ Number=4; ScanType="-sW -PA"; OutputFile=".\Windows-Results\Win-ACK-Probe-scan-results.txt" },
         @{ Number=5; ScanType="-sU -PA"; OutputFile=".\Windows-Results\UDP-scan-results.txt" },
         @{ Number=6; ScanType="-sY -PA"; OutputFile=".\Windows-Results\INIT-scan-results.txt" },
         @{ Number=7; ScanType="-sZ -PA"; OutputFile=".\Windows-Results\COOKIE-scan-results.txt" }
