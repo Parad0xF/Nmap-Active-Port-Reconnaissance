@@ -62,6 +62,7 @@ $commandConfigurations = @{
         @{ Number=5; ScanType="-sU -PA"; OutputFile=".\Windows-Results\UDP-scan-results.txt" },
         @{ Number=6; ScanType="-sY -PA"; OutputFile=".\Windows-Results\INIT-scan-results.txt" },
         @{ Number=7; ScanType="-sZ -PA"; OutputFile=".\Windows-Results\COOKIE-scan-results.txt" }
+        @{ Number=8; ScanType="-sV -PA -v"; OutputFile=".\Windows-Results\Banner-Grab-scan-results.txt" }
     )
     [OperatingSystem]::Unix = @(
         @{ Number=1; ScanType="-sT -Pn"; OutputFile=".\Linux\FULL-TCP-scan-results.txt" },
@@ -73,6 +74,7 @@ $commandConfigurations = @{
         @{ Number=7; ScanType="-sA -ttl 100 -PA"; OutputFile=".\Linux\ACK-TTL-scan-results.txt" },
         @{ Number=8; ScanType="-sY -PA"; OutputFile=".\Linux\INIT-scan-results.txt" },
         @{ Number=9; ScanType="-sZ -PA"; OutputFile=".\Linux\COOKIE-scan-results.txt" }
+        @{ Number=9; ScanType="-sV -PA -v"; OutputFile=".\Linux\Banner-Grab-scan-results.txt" }
     )
 }
 
