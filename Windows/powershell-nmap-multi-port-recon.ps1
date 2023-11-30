@@ -52,6 +52,8 @@ if (-not (IsValidIPAddress $targetIP)) {
     return
 }
 
+Write-Host "Hold on to your butts, this is going to be fun!"
+
 $commandConfigurations = @{
     [OperatingSystem]::Windows = @(
         @{ Number=1; ScanType="-sT -Pn"; OutputFile=".\Windows-Results\FULL-TCP-scan-results.txt" },
