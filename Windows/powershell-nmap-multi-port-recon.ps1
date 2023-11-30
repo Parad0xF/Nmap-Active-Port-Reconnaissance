@@ -54,12 +54,23 @@ if (-not (IsValidIPAddress $targetIP)) {
 
 $commandConfigurations = @{
     [OperatingSystem]::Windows = @(
-        @{ Number=1; ScanType="-sn -PA"; OutputFile=".\Windows-Results\arp-scan-results.txt" },
-        @{ Number=2; ScanType="-sn -PA"; OutputFile=".\Windows-Results\arp-scan-results.txt" }
+        @{ Number=1; ScanType="-sT -Pn"; OutputFile=".\Windows-Results\FULL-TCP-scan-results.txt" },
+        @{ Number=2; ScanType="-sS -PA"; OutputFile=".\Windows-Results\Stealh-scan-results.txt" },
+        @{ Number=4; ScanType="-sA -sW -PA"; OutputFile=".\Windows-Results\Win-ACK-Probe-scan-results.txt" },
+        @{ Number=5; ScanType="-sU -PA"; OutputFile=".\Windows-Results\UDP-scan-results.txt" },
+        @{ Number=6; ScanType="-sY -PA"; OutputFile=".\Windows-Results\INIT-scan-results.txt" },
+        @{ Number=7; ScanType="-sZ -PA"; OutputFile=".\Windows-Results\COOKIE-scan-results.txt" }
     )
     [OperatingSystem]::Unix = @(
-        @{ Number=1; ScanType="-sn -PA"; OutputFile=".\Linux\arp-scan-results.txt" },
-        @{ Number=2; ScanType="-sn -PU"; OutputFile=".\Linux\UDP-scan-results.txt" }
+        @{ Number=1; ScanType="-sT -Pn"; OutputFile=".\Linux\FULL-TCP-scan-results.txt" },
+        @{ Number=2; ScanType="-sS -PA"; OutputFile=".\Linux\Stealh-scan-results.txt" },
+        @{ Number=3; ScanType="-sX -Pn"; OutputFile=".\Linux\XMAS-scan-results.txt" },
+        @{ Number=4; ScanType="-sF -PA"; OutputFile=".\Linux\FIN-scan-results.txt" },
+        @{ Number=5; ScanType="-sM -Pn"; OutputFile=".\Linux\Maimon-scan-results.txt" },
+        @{ Number=6; ScanType="-sA -PA"; OutputFile=".\Linux\ACK-Probe-scan-results.txt" },
+        @{ Number=7; ScanType="-sA -ttl 100 -PA"; OutputFile=".\Linux\ACK-TTL-scan-results.txt" },
+        @{ Number=8; ScanType="-sY -PA"; OutputFile=".\Linux\INIT-scan-results.txt" },
+        @{ Number=9; ScanType="-sZ -PA"; OutputFile=".\Linux\COOKIE-scan-results.txt" }
     )
 }
 
